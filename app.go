@@ -26,7 +26,11 @@ type paket struct {
 }
 
 func main() {
-	currentTime := time.Now().Format("02-01")
+	loc, err := time.LoadLocation("Asia/Jakarta")
+	if err != nil {
+		log.Fatal(err)
+	}
+	currentTime := time.Now().In(loc).Format("02-01")
 	url := os.Getenv("URL_ENDPOINT") + currentTime
 
 	budiClient := http.Client{
