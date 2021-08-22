@@ -1,1 +1,1 @@
-worker: go run app.go
+worker: bin/hbd-say
