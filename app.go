@@ -71,7 +71,7 @@ func main() {
 		Em[0].Color = 16746118
 	case 404:
 		Em[0].Title = "🎂 Today Birthday 🎂"
-		Em[0].Description = "Aw noone celebrate they birthday today"
+		Em[0].Description = "Aw noone celebrate their birthday today"
 		Em[0].Color = 0
 	default:
 		Em[0].Title = "Error"
