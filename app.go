@@ -56,8 +56,7 @@ func main() {
 
 	var Em [1]embed
 
-	switch scode := res.StatusCode; scode {
-	case 200:
+	if re.StatusCode == 200 {
 		datas := []data{}
 		jsonErr := json.Unmarshal(body, &datas)
 		if jsonErr != nil {
@@ -69,10 +68,8 @@ func main() {
 		}
 		Em[0].Title = "🎂 Today Birthday 🎂"
 		Em[0].Color = 16746118
-	default:
-		Em[0].Title = "Error"
-		Em[0].Description = fmt.Sprint(res.StatusCode) + string(body)
-		Em[0].Color = 16711680
+	} else {
+		log.Fatal(re.StatusCode)
 	}
 	p := paket{nil, Em}
 	b, err := json.Marshal(p)
