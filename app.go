@@ -56,7 +56,7 @@ func main() {
 
 	var Em [1]embed
 
-	if re.StatusCode == 200 {
+	if res.StatusCode == 200 {
 		datas := []data{}
 		jsonErr := json.Unmarshal(body, &datas)
 		if jsonErr != nil {
@@ -69,8 +69,9 @@ func main() {
 		Em[0].Title = "🎂 Today Birthday 🎂"
 		Em[0].Color = 16746118
 	} else {
-		log.Fatal(re.StatusCode)
+		log.Fatal(res.StatusCode)
 	}
+	
 	p := paket{nil, Em}
 	b, err := json.Marshal(p)
 	if err != nil {
