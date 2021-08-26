@@ -3,7 +3,6 @@ package main
 import (
 	"bytes"
 	"encoding/json"
-	"fmt"
 	"io/ioutil"
 	"log"
 	"net/http"
@@ -71,7 +70,7 @@ func main() {
 	} else {
 		log.Fatal(res.StatusCode)
 	}
-	
+
 	p := paket{nil, Em}
 	b, err := json.Marshal(p)
 	if err != nil {
