@@ -68,7 +68,7 @@ func main() {
 		Em[0].Title = "🎂 Today Birthday 🎂"
 		Em[0].Color = 16746118
 	} else {
-		log.Fatal(res.StatusCode)
+		log.Fatal("request error", res.StatusCode)
 	}
 
 	p := paket{nil, Em}
@@ -78,7 +78,7 @@ func main() {
 	}
 	resp, err := http.Post(os.Getenv("WEBHOOK_ENDPOINT"), "application/json", bytes.NewBuffer(b))
 	if err != nil {
-		log.Fatal(err)
+		log.Fatal("weebhok eror", err)
 	}
 	defer resp.Body.Close()
 }
